@@ -32,7 +32,7 @@ class App extends Component {
                 <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
                 <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>
-                    I love Tea!
+                    I love Tea and Movies!
                 </Person>
             </div>
         );
