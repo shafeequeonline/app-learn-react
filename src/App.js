@@ -9,7 +9,8 @@ class App extends Component {
         persons : [
             { name: 'Shafeeque', age: 31 },
             { name: 'Rajeev', age: 30 },
-            { name: 'Umer', age: 29 }
+            { name: 'Umer', age: 29 },
+            { name: 'Nijo', age: 28 }
         ]
     }
 
@@ -18,7 +19,8 @@ class App extends Component {
             persons : [
                 { name: newName, age: 31 },
                 { name: 'Rajeev K Ravi', age: 30 },
-                { name: 'Umer Farook', age: 29 }
+                { name: 'Umer Farook', age: 29 },
+                { name: 'Nijo John', age: 28 }
             ]
         })
     }
@@ -34,6 +36,7 @@ class App extends Component {
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>
                     I love Tea and Movies!
                 </Person>
+                <Person name={this.state.persons[3].name} age={this.state.persons[3].age} />
             </div>
         );
     }
