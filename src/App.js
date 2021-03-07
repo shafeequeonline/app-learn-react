@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 // import React, { useState } from 'react';
 
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import places from './Places/Places';
+import Places from './Places/Places'
 
 class App extends Component {
     state = {
@@ -11,7 +13,8 @@ class App extends Component {
             { name: 'Rajeev', age: 30 },
             { name: 'Umer', age: 29 },
             { name: 'Nijo', age: 28 }
-        ]
+        ],
+        places: [ 'Malappuram', 'Kochi', 'Calicut']
     }
 
     switchNameHandler = (newName) => {
@@ -35,6 +38,18 @@ class App extends Component {
             ]
         })
     }
+
+    swithchPlacesHandler = () => {
+        this.setState({
+            places:['Calicut', 'Malappuram', 'Kochi']
+        })
+    }
+
+    swithPlaceArgsHandler = (place) => {
+        this.setState({
+            places: [place, 'Kannur', 'Wayanad']
+        })
+    }
     
     render() {
         return (
@@ -48,6 +63,12 @@ class App extends Component {
                     I love Tea and Movies!
                 </Person>
                 <Person name={this.state.persons[3].name} age={this.state.persons[3].age} />
+
+
+                <Places name={this.state.places[0]} click={this.swithchPlacesHandler} />
+                <Places name={this.state.places[1]} click={this.swithPlaceArgsHandler.bind(this, 'Idukki')} />
+                <Places name={this.state.places[2]} />
+                <button onClick={() => this.swithPlaceArgsHandler('Palakkad')}>Append Places</button>
             </div>
         );
     }
