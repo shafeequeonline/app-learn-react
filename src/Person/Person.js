@@ -1,7 +1,6 @@
 import React from 'react';
 import './Person.css';
 
-
 const person = (props) => {
     // Add singlue curly braces to use JS expressions
     // return <p>I am  and I am {Math.floor(Math.random() * 30)} years old.</p>
