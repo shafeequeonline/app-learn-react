@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import React, { useState } from 'react';
 import Person from './Person/Person';
 import Places from './Places/Places';
+import BindingExample from './BindingDemo'
 
 class App extends Component {
     state = {
@@ -54,6 +55,9 @@ class App extends Component {
             <div className="App">
                 <h1>Hi, I am react App</h1>
                 <p>This is really working!</p>
+
+                <BindingExample />
+
                 <button onClick={() => this.switchNameHandler('M.Shafeeque!')}>Switch Names</button>
                 <Person click={this.switchNameHandler.bind(this, 'MS Naripatta')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
                 <Person click={this.changeNameHandler} name={this.state.persons[1].name} age={this.state.persons[1].age} />
