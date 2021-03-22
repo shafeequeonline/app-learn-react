@@ -12,4 +12,5 @@ const bindingExample = () => {
     )
 }
 
+
 export default bindingExample
