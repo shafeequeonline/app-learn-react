@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+
+
 const bindingExample = () => {
     const [labelText, setLabelText] = useState("MY NEW STRING");
     const [place, setPlace] = useState('Malappuram')
@@ -16,6 +18,5 @@ const bindingExample = () => {
         </div>
     )
 }
-
 
 export default bindingExample
