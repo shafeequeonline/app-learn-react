@@ -51,14 +51,28 @@ class App extends Component {
     
     
     render() {
+
+        const style = {
+            textAlign : 'center'
+        }
+
+        const buttonStyle = {
+            backgroundColor: '#09d1f1',
+            color: 'white',
+            padding: '5px',
+            border: '2px solid #0d6977',
+            cursor: 'pointer'
+        }
+
         return (
-            <div className="App">
+            <div className="App" style={style}>
                 <h1>Hi, I am react App</h1>
                 <p>This is really working!</p>
 
                 <BindingExample />
 
-                <button onClick={() => this.switchNameHandler('M.Shafeeque!')}>Switch Names</button>
+                <button onClick={() => this.switchNameHandler('M.Shafeeque!')} style={buttonStyle}>Switch Names</button>
+
                 <Person click={this.switchNameHandler.bind(this, 'MS Naripatta')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
                 <Person click={this.changeNameHandler} name={this.state.persons[1].name} age={this.state.persons[1].age} />
                 <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>
