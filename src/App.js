@@ -10,9 +10,10 @@ class App extends Component {
             { name: 'Shafeeque', age: 31 },
             { name: 'Rajeev', age: 30 },
             { name: 'Umer', age: 29 },
-            { name: 'Nijo', age: 28 }
+            { name: 'Nijo', age: 28 },
         ],
-        places: [ 'Malappuram', 'Kochi', 'Calicut']
+        places: [ 'Malappuram', 'Kochi', 'Calicut'],
+        showPersons: false
     }
 
     switchNameHandler = (newName) => {
@@ -48,6 +49,11 @@ class App extends Component {
             places: [place, 'Kannur', 'Wayanad']
         })
     }
+
+    togglePersonsHandler = () => {
+        const currentState = this.state.showPersons;
+        this.setState({showPersons : !currentState})
+    }
     
     
     render() {
@@ -69,17 +75,23 @@ class App extends Component {
                 <h1>Hi, I am react App</h1>
                 <p>This is really working!</p>
 
+                { this.state.showPersons ? 
+                    <button onClick={() => this.switchNameHandler('M.Shafeeque!')} style={buttonStyle}>Switch Names</button> : null
+                }
+                <button onClick={this.togglePersonsHandler} style={buttonStyle}>Show Persons</button>
+
+                { this.state.showPersons ?
+                    <div>
+                        <Person click={this.switchNameHandler.bind(this, 'MS Naripatta')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
+                        <Person click={this.changeNameHandler} name={this.state.persons[1].name} age={this.state.persons[1].age} />
+                        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>
+                            I love Tea and Movies!
+                        </Person>
+                        <Person name={this.state.persons[3].name} age={this.state.persons[3].age} />
+                    </div> : null
+                }
+
                 <BindingExample />
-
-                <button onClick={() => this.switchNameHandler('M.Shafeeque!')} style={buttonStyle}>Switch Names</button>
-
-                <Person click={this.switchNameHandler.bind(this, 'MS Naripatta')} name={this.state.persons[0].name} age={this.state.persons[0].age} />
-                <Person click={this.changeNameHandler} name={this.state.persons[1].name} age={this.state.persons[1].age} />
-                <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>
-                    I love Tea and Movies!
-                </Person>
-                <Person name={this.state.persons[3].name} age={this.state.persons[3].age} />
-
 
                 <Places name={this.state.places[0]} click={this.swithchPlacesHandler} />
                 <Places name={this.state.places[1]} click={this.swithPlaceArgsHandler.bind(this, 'Idukki')} />
