@@ -17,26 +17,25 @@ class App extends Component {
         showPersons: false
     }
 
-    switchNameHandler = (newName) => {
-        this.setState( {
-            persons : [
-                {id: 'user01', name: newName, age: 31 },
-                {id: 'user02', name: 'Rajeev K Ravi', age: 30 },
-                {id: 'user03', name: 'Umer Farook', age: 29 },
-                {id: 'user04', name: 'Nijo John', age: 28 }
-            ]
-        })
-    }
+    
 
-    changeNameHandler = (event) => {
-        this.setState( {
-            persons : [
-                { name: 'MS Naripatta', age: 31 },
-                { name: event.target.value, age: 30 },
-                { name: 'Umer Farook', age: 29 },
-                { name: 'Nijo John', age: 28 }
-            ]
+    changeNameHandler = (event, id) => {
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === id;
         })
+
+        const person = {
+            ...this.state.persons[personIndex]
+        };
+
+        person.name = event.target.value;
+
+        const persons = [...this.state.persons];
+        persons[personIndex] = person
+
+
+
+        this.setState( {persons : persons})
     }
 
     deletePersonsHandler = (personIndex) => {
@@ -88,7 +87,8 @@ class App extends Component {
                             click={() => this.deletePersonsHandler(index)}
                             name={person.name} 
                             age={person.age}
-                            key={person.id} />
+                            key={person.id}
+                            changed={(event) => this.changeNameHandler(event, person.id)} />
                     })}
                 </div>
             );
@@ -99,9 +99,7 @@ class App extends Component {
                 <h1>Hi, I am react App</h1>
                 <p>This is really working!</p>
                 
-                { this.state.showPersons ? 
-                    <button onClick={() => this.switchNameHandler('M.Shafeeque!')} style={buttonStyle}>Switch Names</button> : null
-                }
+                
                 <button onClick={this.togglePersonsHandler} style={buttonStyle}>Show Persons</button>
                 
                 {persons}
