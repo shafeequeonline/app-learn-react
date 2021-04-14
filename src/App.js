@@ -8,10 +8,10 @@ import person from './Person/Person';
 class App extends Component {
     state = {
         persons : [
-            { name: 'Shafeeque', age: 31 },
-            { name: 'Rajeev', age: 30 },
-            { name: 'Umer', age: 29 },
-            { name: 'Nijo', age: 28 },
+            { id: 'user01', name: 'Shafeeque', age: 31 },
+            { id: 'user02', name: 'Rajeev', age: 30 },
+            { id: 'user03', name: 'Umer', age: 29 },
+            { id: 'user04', name: 'Nijo', age: 28 },
         ],
         places: [ 'Malappuram', 'Kochi', 'Calicut'],
         showPersons: false
@@ -20,10 +20,10 @@ class App extends Component {
     switchNameHandler = (newName) => {
         this.setState( {
             persons : [
-                { name: newName, age: 31 },
-                { name: 'Rajeev K Ravi', age: 30 },
-                { name: 'Umer Farook', age: 29 },
-                { name: 'Nijo John', age: 28 }
+                {id: 'user01', name: newName, age: 31 },
+                {id: 'user02', name: 'Rajeev K Ravi', age: 30 },
+                {id: 'user03', name: 'Umer Farook', age: 29 },
+                {id: 'user04', name: 'Nijo John', age: 28 }
             ]
         })
     }
@@ -40,7 +40,7 @@ class App extends Component {
     }
 
     deletePersonsHandler = (personIndex) => {
-        const persons = this.state.persons;
+        const persons = [...this.state.persons]; // user spred operator then re assigned it to the state
         persons.splice(personIndex, 1);
         // you can use array destructuring here like this.setState({persons})
         this.setState({persons: persons})
@@ -87,7 +87,8 @@ class App extends Component {
                         return <Person 
                             click={() => this.deletePersonsHandler(index)}
                             name={person.name} 
-                            age={person.age} />
+                            age={person.age}
+                            key={person.id} />
                     })}
                 </div>
             );
