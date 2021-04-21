@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import Places from './Places/Places';
 import BindingExample from './BindingDemo'
 import person from './Person/Person';
+import CharecterComponent from './CharecterComponent/CharecterComponent';
 
 class App extends Component {
     state = {
@@ -62,7 +63,6 @@ class App extends Component {
         this.setState({showPersons : !currentState})
     }
     
-    
     render() {
 
         const style = {
@@ -112,6 +112,10 @@ class App extends Component {
                 <Places name={this.state.places[1]} click={this.swithPlaceArgsHandler.bind(this, 'Idukki')} />
                 <Places name={this.state.places[2]} />
                 <button onClick={() => this.swithPlaceArgsHandler('Palakkad')}>Append Places</button>
+
+                <hr />
+                <CharecterComponent />
+                
             </div>
         );
     }
