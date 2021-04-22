@@ -4,6 +4,7 @@ import Person from './Person/Person';
 import Places from './Places/Places';
 import BindingExample from './BindingDemo'
 import person from './Person/Person';
+import './App.css';
 import CharecterComponent from './CharecterComponent/CharecterComponent';
 
 class App extends Component {
@@ -96,10 +97,20 @@ class App extends Component {
             buttonStyle.backgroundColor = 'red'
         }
 
+        let classes = [];
+
+        if(this.state.persons.length <= 2) {
+            classes.push('red')
+        }
+
+        if(this.state.persons.length <= 1) {
+            classes.push('bold')
+        }
+
         return (
             <div className="App" style={style}>
                 <h1>Hi, I am react App</h1>
-                <p>This is really working!</p>
+                <p className={classes.join(' ')}>This is really working!</p>
                 
                 
                 <button onClick={this.togglePersonsHandler} style={buttonStyle}>Show Persons</button>
