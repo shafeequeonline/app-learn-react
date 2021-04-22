@@ -6,7 +6,7 @@ import BindingExample from './BindingDemo'
 import person from './Person/Person';
 import './App.css';
 import CharecterComponent from './CharecterComponent/CharecterComponent';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
     state = {
@@ -116,28 +116,30 @@ class App extends Component {
         }
 
         return (
-            <div className="App" style={style}>
-                <h1>Hi, I am react App</h1>
-                <p className={classes.join(' ')}>This is really working!</p>
-                
-                
-                <button onClick={this.togglePersonsHandler} style={buttonStyle}>Show Persons</button>
-                
-                {persons}
+            <StyleRoot>    
+                <div className="App" style={style}>
+                    <h1>Hi, I am react App</h1>
+                    <p className={classes.join(' ')}>This is really working!</p>
                     
-                
+                    
+                    <button onClick={this.togglePersonsHandler} style={buttonStyle}>Show Persons</button>
+                    
+                    {persons}
+                        
+                    
 
-                <BindingExample />
+                    <BindingExample />
 
-                <Places name={this.state.places[0]} click={this.swithchPlacesHandler} />
-                <Places name={this.state.places[1]} click={this.swithPlaceArgsHandler.bind(this, 'Idukki')} />
-                <Places name={this.state.places[2]} />
-                <button onClick={() => this.swithPlaceArgsHandler('Palakkad')}>Append Places</button>
+                    <Places name={this.state.places[0]} click={this.swithchPlacesHandler} />
+                    <Places name={this.state.places[1]} click={this.swithPlaceArgsHandler.bind(this, 'Idukki')} />
+                    <Places name={this.state.places[2]} />
+                    <button onClick={() => this.swithPlaceArgsHandler('Palakkad')}>Append Places</button>
 
-                <hr />
-                <CharecterComponent />
-                
-            </div>
+                    <hr />
+                    <CharecterComponent />
+                    
+                </div>
+            </StyleRoot>
         );
     }
 }
