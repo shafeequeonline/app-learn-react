@@ -6,6 +6,7 @@ import BindingExample from './BindingDemo'
 import person from './Person/Person';
 import './App.css';
 import CharecterComponent from './CharecterComponent/CharecterComponent';
+import Radium from 'radium';
 
 class App extends Component {
     state = {
@@ -75,7 +76,11 @@ class App extends Component {
             color: 'white',
             padding: '5px',
             border: '2px solid #0d6977',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: '#000',
+            }
         }
 
         let persons = null;
@@ -94,7 +99,10 @@ class App extends Component {
                 </div>
             );
 
-            buttonStyle.backgroundColor = 'red'
+            buttonStyle.backgroundColor = 'red',
+            buttonStyle[':hover'] = {
+                backgroundColor: 'orange'
+            }
         }
 
         let classes = [];
@@ -134,4 +142,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Radium(App);
