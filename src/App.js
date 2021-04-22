@@ -70,7 +70,7 @@ class App extends Component {
         }
 
         const buttonStyle = {
-            backgroundColor: '#09d1f1',
+            backgroundColor: 'green',
             color: 'white',
             padding: '5px',
             border: '2px solid #0d6977',
@@ -92,6 +92,8 @@ class App extends Component {
                     })}
                 </div>
             );
+
+            buttonStyle.backgroundColor = 'red'
         }
 
         return (
