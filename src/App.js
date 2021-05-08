@@ -111,6 +111,7 @@ class App extends Component {
             classes.push('red')
         }
 
+        
         if(this.state.persons.length <= 1) {
             classes.push('bold')
         }
