@@ -119,7 +119,7 @@ class App extends Component {
         return (
             <StyleRoot>    
                 <div className="App" style={style}>
-                    <h1>Hi, I am react App</h1>
+                    <h1>Hi, I am react App : A test commit</h1>
                     <p className={classes.join(' ')}>This is really working!</p>
                     
                     
